@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
 }
 
+/*NavBar*/
 .navbar-brand{
   margin: 8px 8px;
 }
@@ -12,17 +13,17 @@ body {
   margin: 8px 8px; 
 }
 
+/*Homepage*/
 .homepage, .addquestion-cont, .answers-cont{
   padding-top: 40px;
   padding-bottom: 40px;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 };
 
+/*Answers Component*/
 .post-answer{
   padding-top: 12px;
 }
 
-.searchInput{
-  margin: 0 auto;
-}
+

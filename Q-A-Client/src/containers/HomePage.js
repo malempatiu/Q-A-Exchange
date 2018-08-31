@@ -25,9 +25,9 @@ class HomePage extends Component {
         }
         return (
             <div className="conatiner homepage">
-                <div className="jumbotron text-center">
-                        <h1>Welcome to Staffbase Q & A</h1>
-                        <p className="lead">View all top questions and answers raised by employee's</p>
+                <div className="jumbotron text-left">
+                        <h1>Welcome to Q-A-Exchange</h1>
+                        <p className="lead">View all top questions and answers</p>
                         <input type="text" className="searchInput" placeholder="search your Q's by email" onChange={this.handleUserSearch} style={{ margin: '8px' }} />
                 </div>
                 <div className="container">

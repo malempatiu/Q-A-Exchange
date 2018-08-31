@@ -38,7 +38,6 @@ class QuestionAnswer extends Component {
                 </p>
                 <hr />
                 <h3 className="font-weight-bold">Answers</h3>
-                <hr />
                 {data.answers.map((qAnswer) => {
                     return <div key={qAnswer._id} className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12">
@@ -54,8 +53,8 @@ class QuestionAnswer extends Component {
                         </div>
                     </div>
                 })}
-                <h3 className="font-weight-bold post-answer">Your Answer</h3>
                 <hr />
+                <h3 className="font-weight-bold post-answer">Your Answer</h3>
                 <div className="row">
                     <div className="col-lg-12 col-md-12 col-sm-12">
                         <form id="answerform" onSubmit={this.handleFormSubmit}>
