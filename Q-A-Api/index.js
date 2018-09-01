@@ -20,19 +20,21 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Importing local files
-const {createQuestion, fetchQuestions, getQuestion} = require('./handlers/user-questions');
+const {createQuestion, fetchQuestions, getQuestion, userCreatedQuestions} = require('./handlers/user-questions');
 const {createAnswer} = require('./handlers/user-answers');
 const {createUser, loginUser} = require('./handlers/user-handler');
+const {isLoggedIn, isAuthorized} = require('./middleware/user-auth');
 
 //User Routes
-app.post('/api/user/signup', createuser);
+app.post('/api/user/signup', createUser);
 app.post('/api/user/signin', loginUser);
 
 //Questions & Answers Routes
-app.post('/api/questions', createQuestion);
+app.post('/api/user/:id/questions', isLoggedIn, isAuthorized, createQuestion);
+app.get('/api/user/:id/questions', isLoggedIn, isAuthorized, userCreatedQuestions);
 app.get('/api/questions', fetchQuestions);
 app.get('/api/questions/:id', getQuestion);
-app.post('/api/answers/:id', createAnswer);
+app.post('/api/user/:id/questions/:question_id/answer', isLoggedIn, isAuthorized, createAnswer);
 
 const port = process.env.PORT;
 app.listen(port, () => {

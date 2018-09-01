@@ -4,11 +4,11 @@ const Answer = require('../models/answers'),
 
 exports.createAnswer = async (req, res) => {
     try {
-        const { id } = req.params;
-        if (!ObjectID.isValid(id)) {
+        const { question_id } = req.params;
+        if (!ObjectID.isValid(question_id)) {
             return res.status(404).json({ error: "Invalid ID" });
         }
-        const foundedQuestion = await Question.findById(id);
+        const foundedQuestion = await Question.findById(question_id);
         if (foundedQuestion) {
             const answer = await Answer.create(req.body);
             foundedQuestion.answers.push(answer);

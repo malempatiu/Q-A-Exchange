@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
-    validator = require('validator');
+    validator = require('validator'),
+    Question = require('./questions');
 
 //User Schema
 const userSchema = new mongoose.Schema({
@@ -21,8 +22,13 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+        trim:true,
         minlength: 6
-    }
+    },
+    questions: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question'
+    }]
 });
 
 //User Model
