@@ -11,6 +11,13 @@ body {
 
 .nav-link{
   margin: 8px 8px; 
+  display: inline;
+}
+
+/*AuthForm Coomponent*/
+.authform-cont{
+  padding-top: 40px;
+  width: 65%;
 }
 
 /*Homepage*/

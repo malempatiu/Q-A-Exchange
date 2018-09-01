@@ -5,27 +5,24 @@ import Moment from 'react-moment';
 
 class QuestionAnswer extends Component {
     state = {
-        answer: '',
-        createdBy: ''
+        answer: ''
     };
     componentDidMount() {
         const id = this.props.match.params.id;
         this.props.getQuestionAndAnswer(id);
     };
     handleQuestionAnswer = (e) => {
-         this.setState({answer: e.target.value});
-    };
-    handleUsername = (e) => {
-         this.setState({createdBy: e.target.value});
+        this.setState({ answer: e.target.value });
     };
     handleFormSubmit = (e) => {
         e.preventDefault();
         const id = this.props.match.params.id;
-        this.props.createAnswer(this.state, id);
+        const {answer} = this.state;
+        this.props.createAnswer({answer, createdBy: this.props.email}, id);
         document.getElementById("answerform").reset();
     };
     render() {
-        const { data, error } = this.props;
+        const { data, error, isAuthenticated } = this.props;
         return (
             <div className="container answers-cont">
                 {error && <div className="alert alert-danger">{error}</div>}
@@ -54,22 +51,23 @@ class QuestionAnswer extends Component {
                     </div>
                 })}
                 <hr />
-                <h3 className="font-weight-bold post-answer">Your Answer</h3>
-                <div className="row">
-                    <div className="col-lg-12 col-md-12 col-sm-12">
-                        <form id="answerform" onSubmit={this.handleFormSubmit}>
-                            <div className="form-group">
-                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={this.handleQuestionAnswer}></textarea>
+                {isAuthenticated &&
+                    <div>
+                        <h3 className="font-weight-bold post-answer">Your Answer</h3>
+                        <div className="row">
+                            <div className="col-lg-12 col-md-12 col-sm-12">
+                                <form id="answerform" onSubmit={this.handleFormSubmit}>
+                                    <div className="form-group">
+                                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={this.handleQuestionAnswer}></textarea>
+                                    </div>
+                                    <div className="form-group text-center">
+                                        <button type="submit" className="btn btn-primary form-control">Post Answer</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div className="form-group">
-                                <input className="form-control" type="text" placeholder="enter email address" onChange={this.handleUsername} /> 
-                            </div>
-                            <div className="form-group text-center">
-                                <button type="submit" className="btn btn-primary form-control">Post Answer</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         );
     };
@@ -78,7 +76,9 @@ class QuestionAnswer extends Component {
 const mapStateToProps = (state) => {
     return {
         data: state.QuestionAndAnswer,
-        error: state.Errors.error
+        error: state.Errors.error,
+        isAuthenticated: state.CurrentUser.isAuthenticated,
+        email: state.CurrentUser.user.email
     };
 };
 

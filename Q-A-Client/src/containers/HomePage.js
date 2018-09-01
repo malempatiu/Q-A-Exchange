@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchQuestions } from '../actions/actions';
+import { fetchQuestions, removeError} from '../actions/actions';
 import { Link } from 'react-router-dom';
 
 class HomePage extends Component {
@@ -8,6 +8,7 @@ class HomePage extends Component {
         text: ''
     }
     componentDidMount() {
+        this.props.removeError();
         this.props.fetchQuestions();
     };
     handleUserSearch = (e) => {
@@ -18,17 +19,20 @@ class HomePage extends Component {
         let newQuestions;
         if (this.state.text.length > 0) {
             newQuestions = questions.filter((question) => {
-                return question.createdBy.toLowerCase().includes(this.state.text.toLowerCase());
+                return question.text.toLowerCase().includes(this.state.text.toLowerCase());
             });
         } else {
             newQuestions = questions;
         }
         return (
             <div className="conatiner homepage">
-                <div className="jumbotron text-left">
-                        <h1>Welcome to Q-A-Exchange</h1>
-                        <p className="lead">View all top questions and answers</p>
-                        <input type="text" className="searchInput" placeholder="search your Q's by email" onChange={this.handleUserSearch} style={{ margin: '8px' }} />
+                <div className="jumbotron text-center">
+                    <h1>Welcome to Q-A-Exchange</h1>
+                    <p className="lead">View all top questions and answers</p>
+                    <Link className="btn btn-info text-white" to="/addquestion">Ask Question</Link>
+                </div>
+                <div className="container text-center w-75">
+                    <input type="text" className="form-control searchInput" placeholder="search questions....." onChange={this.handleUserSearch} style={{ margin: '8px' }} />
                 </div>
                 <div className="container">
                     {error && <div className="alert alert-danger">{error}</div>}
@@ -56,4 +60,4 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, { fetchQuestions })(HomePage);
+export default connect(mapStateToProps, { fetchQuestions, removeError })(HomePage);
