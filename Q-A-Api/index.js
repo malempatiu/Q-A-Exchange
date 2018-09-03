@@ -15,7 +15,9 @@ const express = require('express'),
 
 //App and mongoose config
 mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+let url = process.env.DATABASEURL || process.env.MONGODB_URI;
+mongoose.connect(url, { useNewUrlParser: true });
+//
 app.use(bodyParser.json());
 app.use(cors());
 
