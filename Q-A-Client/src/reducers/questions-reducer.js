@@ -5,7 +5,6 @@ const initialQuestionsState = {
 };
 
 const Questions = (state = initialQuestionsState, action) => {
-
     switch (action.type) {
         case GET_QUESTIONS:
             return {
