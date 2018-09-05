@@ -6,4 +6,5 @@ export const GET_QUESTION = 'GET_QUESTION';
 export const ADD_ANSWER = 'ADD_ANSWER';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const GET_USER_QUESTIONS = 'GET_USER_QUESTIONS';
+export const UPDATE_ANSWER = 'UPDATE_ANSWER';
 

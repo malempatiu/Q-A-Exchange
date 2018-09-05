@@ -1,4 +1,4 @@
-import { GET_QUESTION, ADD_ANSWER} from '../actions/action-constants';
+import { GET_QUESTION, ADD_ANSWER, UPDATE_ANSWER } from '../actions/action-constants';
 
 const initialData = {
     text: '',
@@ -17,10 +17,19 @@ const QuestionAndAnswer = (state = initialData, action) => {
                 answers: action.question.answers
             };
         case ADD_ANSWER:
-        return {
-            ...state,
-            answers: [...state.answers, action.answer]
-        };
+            return {
+                ...state,
+                answers: [...state.answers, action.answer]
+            };
+        case UPDATE_ANSWER:
+            state.answers.forEach((answer) => {
+                if (answer._id === action.updatedAnswer._id) {
+                    answer.isHelped = action.updatedAnswer.isHelped
+                };
+            });
+            return {
+                ...state
+            };
         default:
             return state;
     }

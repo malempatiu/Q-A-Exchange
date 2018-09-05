@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, GET_QUESTIONS, ADD_ERROR, REMOVE_ERROR, ADD_QUESTION, GET_QUESTION, ADD_ANSWER, GET_USER_QUESTIONS } from './action-constants';
+import { SET_CURRENT_USER, GET_QUESTIONS, ADD_ERROR, REMOVE_ERROR, ADD_QUESTION, GET_QUESTION, ADD_ANSWER, GET_USER_QUESTIONS, UPDATE_ANSWER} from './action-constants';
 
 /*
 ** Authentication Related Actions
@@ -41,18 +41,28 @@ export const getQuestion = (question) => {
     };
 };
 
-export const addAnswer = (answer) => {
-    return {
-        type: ADD_ANSWER,
-        answer
-    };
-}
-
 export const addQuestion = (question) => {
     return {
         type: ADD_QUESTION,
         question
     };
+};
+
+/*
+** Answers related
+*/
+export const addAnswer = (answer) => {
+    return {
+        type: ADD_ANSWER,
+        answer
+    };
+};
+
+export const updateAnswer = (updatedAnswer) => {
+     return{
+         type: UPDATE_ANSWER,
+         updatedAnswer
+     };
 };
 
 /*
@@ -195,3 +205,29 @@ export const createAnswer = (answerText, id) => {
             .catch((err) => console.log(err));
     }
 };
+
+export const upgradeAnswer = (answerTextToUpdate, id) => {
+    return (dispatch, getState) => {
+        console.log(answerTextToUpdate);
+        const { CurrentUser } = getState();
+        const token = localStorage.getItem('userJwtToken');
+        return fetch(`http://localhost:8081/api/user/${CurrentUser.user._id}/answers/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(answerTextToUpdate)
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.error) {
+                    dispatch(addError(data.error));
+                } else {
+                    dispatch(updateAnswer(data.updatedAnswer));
+                }
+            })
+            .catch((err) => console.log(err));
+    }
+};
+
