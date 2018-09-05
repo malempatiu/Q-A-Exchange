@@ -7,6 +7,7 @@ const app = require('../index'),
     User = require('../models/user');
 
 let questionID;
+let answerID;
 let token;
 let createdBy;
 let userID;
@@ -200,6 +201,56 @@ describe('POST /api/user/:id/questions/:question_id/answer', () => {
             .expect(200)
             .expect((res) => {
                 expect(res.body.answer.answer).toBe(answer);
+                answerID = res.body.answer._id;
+            })
+            .end((err, res) => {
+                if(err){
+                    return done(err);
+                };
+
+                Question.find({}).then((questions) => {
+                    expect(questions.length).toBe(1);
+                    expect(questions[0].answers.length).toBe(1);
+                    done();
+                })
+                .catch((err) => done(err));
+            });
+    });
+});
+
+describe('PUT /api/user/:id/anwers/:answer_id', () => {
+    const isHelped = true;
+    it('should not update an answer for invalid answer id', (done) => {
+        request(app)
+            .put(`/api/user/${userID}/answers/123`)
+            .set("authorization", `Bearer ${token}`)
+            .send({isHelped})
+            .expect(404)
+            .expect((res) => {
+                expect(res.body.error).toBe("Invalid ID");
+            })
+            .end(done);
+    });
+    it('should not update an answer for other valid answers id', (done) => {
+        const id = new ObjectID();
+        request(app)
+            .put(`/api/user/${userID}/answers/${id}`)
+            .set("authorization", `Bearer ${token}`)
+            .send({isHelped})
+            .expect(404)
+            .expect((res) => {
+                expect(res.body.error).toBe("No answer found to update. Invalid ID");
+            })
+            .end(done);
+    });
+    it('should update anwer', (done) => {
+        request(app)
+            .put(`/api/user/${userID}/answers/${answerID}`)
+            .set("authorization", `Bearer ${token}`)
+            .send({isHelped})
+            .expect(200)
+            .expect((res) => {
+                expect(res.body.updatedAnswer.isHelped).toBeTruthy();
             })
             .end((err, res) => {
                 if(err){
