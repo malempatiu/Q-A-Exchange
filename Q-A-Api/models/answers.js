@@ -14,6 +14,10 @@ const answersSchema = new mongoose.Schema({
           type:String,
           default: null,
           minlength: 1
+      },
+      isHelped: {
+          type: Boolean,
+          default: false
       }
 });
 

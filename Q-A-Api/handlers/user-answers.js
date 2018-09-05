@@ -21,3 +21,20 @@ exports.createAnswer = async (req, res) => {
         return res.status(400).json({ error: err.message });
     }
 };
+
+exports.updateAnswer = async (req, res) => {
+    try {
+        const { answer_id } = req.params;
+        if (!ObjectID.isValid(answer_id)) {
+            return res.status(404).json({ error: "Invalid ID" });
+        }
+        const updatedAnswer = await Answer.findOneAndUpdate({_id:answer_id}, req.body, {new: true});
+        if (updatedAnswer) {
+            return res.status(200).json({ updatedAnswer });
+        } else {
+            return res.status(404).json({error:"No answer found to update. Invalid ID"});
+        };
+    } catch (err) {
+        return res.status(400).json({ error: err.message });
+    };
+};

@@ -23,7 +23,7 @@ app.use(cors());
 
 //Importing local files
 const {createQuestion, fetchQuestions, getQuestion, userCreatedQuestions} = require('./handlers/user-questions');
-const {createAnswer} = require('./handlers/user-answers');
+const {createAnswer, updateAnswer} = require('./handlers/user-answers');
 const {createUser, loginUser} = require('./handlers/user-handler');
 const {isLoggedIn, isAuthorized} = require('./middleware/user-auth');
 
@@ -37,6 +37,7 @@ app.get('/api/user/:id/questions', isLoggedIn, isAuthorized, userCreatedQuestion
 app.get('/api/questions', fetchQuestions);
 app.get('/api/questions/:id', getQuestion);
 app.post('/api/user/:id/questions/:question_id/answer', isLoggedIn, isAuthorized, createAnswer);
+app.put('/api/user/:id/answers/:answer_id', isLoggedIn, isAuthorized, updateAnswer);
 
 const port = process.env.PORT;
 app.listen(port, () => {
