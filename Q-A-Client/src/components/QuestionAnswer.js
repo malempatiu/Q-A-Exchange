@@ -22,7 +22,6 @@ class QuestionAnswer extends Component {
        });
     };
     handleUpdateAnswer = (id) => {
-        console.log(this.state.helped);
         this.props.upgradeAnswer({isHelped: this.state.helped}, id);
     };
     handleFormSubmit = (e) => {
