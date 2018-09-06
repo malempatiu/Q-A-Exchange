@@ -6,10 +6,11 @@ describe('QUESTIONANDANSWER REDUCER', () => {
         createdAt: 156495589,
         createdBy: 'malempati',
         answers: [{
-            id: '321',
+            _id: '321',
             answer: 'what is abc?',
             createdAt: 156495589,
-            createdBy: 'ugesh'
+            createdBy: 'ugesh',
+            isHelped: false
         }]
     };
     it('should setup an initial state', () => {
@@ -31,12 +32,24 @@ describe('QUESTIONANDANSWER REDUCER', () => {
     });
     it('should setup an object for the ADD_ANSWER type', () => {
         const answer = {
-            id: '2111',
+            _id: '2111',
             answer: 'what is cba?',
             createdAt: 156495589,
             createdBy: 'ugeshmalempati',
+            isHelped: false
         };
         const reducerState = QuestionAndAnswer(question, {type:'ADD_ANSWER', answer});
         expect(reducerState.answers).toHaveLength(2);
+    });
+    it('should setup an object for the UPDATE_ANSWER type', () => {
+        const updatedAnswer = {
+            _id: '321',
+            answer: 'what is cba?',
+            createdAt: 156495589,
+            createdBy: 'ugeshmalempati',
+            isHelped: true
+        };
+        const reducerState = QuestionAndAnswer(question, {type:'UPDATE_ANSWER', updatedAnswer});
+        expect(reducerState.answers[0].isHelped).toBeTruthy();
     });
 });
