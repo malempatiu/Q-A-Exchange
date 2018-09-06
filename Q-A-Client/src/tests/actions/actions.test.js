@@ -1,4 +1,4 @@
-import { addError, removeError, setCurrentUser, addQuestion, getQuestion, getQuestions, getUserQuestions, addAnswer } from '../../actions/actions';
+import { addError, removeError, setCurrentUser, addQuestion, getQuestion, getQuestions, getUserQuestions, addAnswer, updateAnswer } from '../../actions/actions';
 
 describe('ACTIONS TESTING', () => {
 
@@ -16,7 +16,7 @@ describe('ACTIONS TESTING', () => {
         });
     });
 
-    describe('USER ACTIONS', () => {
+    describe('USER RELATED ACTIONS', () => {
         it('should setup an object for the current user data', () => {
             const user = {
                 id: '5432647589',
@@ -109,7 +109,7 @@ describe('ACTIONS TESTING', () => {
         });
     });
 
-    describe('ANSWER ACTION', () => {
+    describe('ANSWER RELATED ACTIONS', () => {
         it('should setup an object for addAnswer action', () => {
             const answer = {
                 id: '2564789',
@@ -121,6 +121,21 @@ describe('ACTIONS TESTING', () => {
             expect(addAnswerActionObject).toEqual({
                 type: 'ADD_ANSWER',
                 answer
+            });
+        });
+
+        it('should setup an object for updateAnswer action', () => {
+            const updatedAnswer = {
+                id: '2564789',
+                answer: 'What is Testing?',
+                createdAt: 1536009421,
+                createdBy: 'abc',
+                isHelped: true
+            };
+            const updateAnswerActionObject = updateAnswer(updatedAnswer);
+            expect(updateAnswerActionObject).toEqual({
+                type: 'UPDATE_ANSWER',
+                updatedAnswer
             });
         });
     });
