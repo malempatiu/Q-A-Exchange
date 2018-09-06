@@ -15,7 +15,7 @@ const express = require('express'),
 
 //App and mongoose config
 mongoose.Promise = Promise;
-let url = process.env.MONGODB_URI;
+let url = process.env.DATABASEURL || process.env.MONGODB_URI;
 mongoose.connect(url, { useNewUrlParser: true });
 //
 app.use(bodyParser.json());
