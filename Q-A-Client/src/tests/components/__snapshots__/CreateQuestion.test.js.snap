@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CreateQuestion component correctly 1`] = `
+<div
+  className="container addquestion-cont"
+>
+  <h4
+    className="text-center"
+  >
+    Ask a question
+  </h4>
+  <div
+    className="row"
+  >
+    <div
+      className="col-lg-12 col-md-12 col-sm-12"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <textarea
+            className="form-control"
+            id="exampleFormControlTextarea1"
+            onChange={[Function]}
+            rows="3"
+          />
+        </div>
+        <div
+          className="form-group text-center"
+        >
+          <button
+            className="btn btn-primary form-control"
+            type="submit"
+          >
+            Create a Question
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

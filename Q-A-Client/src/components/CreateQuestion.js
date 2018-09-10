@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {createQuestion} from '../actions/actions';
 import {Redirect} from 'react-router-dom';
 
-class CreateQuestion extends Component {
+export class CreateQuestion extends Component {
     state = {
         text: ''
     };
