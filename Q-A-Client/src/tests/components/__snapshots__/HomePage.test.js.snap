@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HOMEPAGE CONTAINER should render homepage 1`] = `
+<div
+  className="conatiner homepage"
+>
+  <div
+    className="jumbotron text-center"
+  >
+    <h1>
+      Welcome to Q-A-Exchange
+    </h1>
+    <p
+      className="lead"
+    >
+      View all top questions and answers
+    </p>
+    <Link
+      className="btn btn-info text-white"
+      replace={false}
+      to="/addquestion"
+    >
+      Ask Question
+    </Link>
+  </div>
+  <div
+    className="container text-center w-75"
+  >
+    <input
+      className="form-control searchInput"
+      onChange={[Function]}
+      placeholder="search questions....."
+      style={
+        Object {
+          "margin": "8px",
+        }
+      }
+      type="text"
+    />
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+      key="5b8d55fcfac57133747fc5c4"
+    >
+      <div
+        className="col-lg-12 col-md-12 col-sm-12"
+      >
+        <div
+          className="card"
+        >
+          <Link
+            className="card-body text-primary"
+            id="5b8d55fcfac57133747fc5c4"
+            replace={false}
+            to="/question/5b8d55fcfac57133747fc5c4"
+          >
+            What is React?
+          </Link>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+      key="5b8d55fcfac57133747fc5c5"
+    >
+      <div
+        className="col-lg-12 col-md-12 col-sm-12"
+      >
+        <div
+          className="card"
+        >
+          <Link
+            className="card-body text-primary"
+            id="5b8d55fcfac57133747fc5c5"
+            replace={false}
+            to="/question/5b8d55fcfac57133747fc5c5"
+          >
+            What is the difference between state and props in React?
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

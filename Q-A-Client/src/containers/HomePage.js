@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchQuestions, removeError} from '../actions/actions';
 import { Link } from 'react-router-dom';
 
-class HomePage extends Component {
+export class HomePage extends Component {
     state = {
         text: ''
     }
