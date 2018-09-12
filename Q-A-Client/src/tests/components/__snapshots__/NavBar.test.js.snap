@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NAVBAR CONTAINER should render navbar with home, myquestions & logout links 1`] = `
+<nav
+  className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"
+>
+  <div
+    className="container"
+  >
+    <h1
+      className="navbar-brand text-white font-weight-bold"
+    >
+      Q-A-Exchange
+    </h1>
+    <Link
+      className="nav-link"
+      replace={false}
+      to="/"
+    >
+      Home
+    </Link>
+    <div
+      className="navbar-toggler"
+      data-target="#navbarMenu"
+      data-toggle="collapse"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </div>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarMenu"
+    >
+      <div
+        className="navbar-nav ml-auto"
+      >
+        <div>
+          <a
+            className="nav-item nav-link text-success font-weight-bold"
+            to="/"
+          >
+            welcome 
+            ugesh
+          </a>
+          <Link
+            className="nav-item nav-link btn btn-info text-white"
+            replace={false}
+            to="/userquestions"
+          >
+            My Questions
+          </Link>
+          <Link
+            className="nav-item nav-link btn btn-info text-white"
+            onClick={[Function]}
+            replace={false}
+            to="/"
+          >
+            Log Out
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`NAVBAR CONTAINER should render navbar with home, signup & login links 1`] = `
+<nav
+  className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"
+>
+  <div
+    className="container"
+  >
+    <h1
+      className="navbar-brand text-white font-weight-bold"
+    >
+      Q-A-Exchange
+    </h1>
+    <Link
+      className="nav-link"
+      replace={false}
+      to="/"
+    >
+      Home
+    </Link>
+    <div
+      className="navbar-toggler"
+      data-target="#navbarMenu"
+      data-toggle="collapse"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </div>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarMenu"
+    >
+      <div
+        className="navbar-nav ml-auto"
+      >
+        <div>
+          <Link
+            className="nav-item nav-link btn btn-info text-white"
+            replace={false}
+            to="/signup"
+          >
+            Sign Up
+          </Link>
+          <Link
+            className="nav-item nav-link btn btn-info text-white"
+            replace={false}
+            to="/signin"
+          >
+            Log In
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;

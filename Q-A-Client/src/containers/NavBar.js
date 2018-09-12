@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {logoutUser} from '../actions/actions';
 
 
-class NavBar extends Component {
+export class NavBar extends Component {
     handleLogout = (e) => {
         this.props.logoutUser();       
     };
