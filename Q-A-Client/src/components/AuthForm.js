@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { userAuthentication, addError } from '../actions/actions';
 import { Redirect, Link } from 'react-router-dom';
 
-class AuthForm extends Component {
+export class AuthForm extends Component {
     state = {
         email: '',
         username: '',
@@ -24,10 +24,10 @@ class AuthForm extends Component {
         const authType = signUp ? 'signup' : 'signin';
         if(this.state.password.length>=6){
         userAuthentication(authType, this.state);
-        document.getElementById('auth-form').reset();
+        //document.getElementById('auth-form').reset();
         }else{
             this.props.addError("Check password length");
-            document.getElementById('auth-form').reset();
+            //document.getElementById('auth-form').reset();
         };
     };
     render() {

@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AUTHFORM COMPONENT should render LogIn fields 1`] = `
+<div>
+  <div
+    className="container authform-cont"
+  >
+    <h1
+      className="text-center"
+    >
+      Welcome Back to Q-A-Exchange
+    </h1>
+    <div
+      className="row"
+    >
+      <div
+        className="col-lg-12 col-md-12 col-sm-12"
+      >
+        <form
+          id="auth-form"
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="font-weight-bold"
+              htmlFor="email"
+            >
+              Email:
+            </label>
+            <input
+              className="form-control"
+              id="email"
+              onChange={[Function]}
+              type="text"
+            />
+            <small
+              className="form-text text-muted"
+              id="emailHelp"
+            >
+              abc@abc.com
+            </small>
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              className="font-weight-bold"
+              htmlFor="password"
+            >
+              Password:
+            </label>
+            <input
+              className="form-control"
+              id="password"
+              onChange={[Function]}
+              type="password"
+            />
+            <small
+              className="form-text text-muted"
+              id="emailHelp"
+            >
+              min.length 6
+            </small>
+          </div>
+          <div
+            className="form-group text-center"
+          >
+            <button
+              className="btn btn-primary form-control"
+              type="submit"
+            >
+              Log In
+            </button>
+          </div>
+        </form>
+        <div
+          className="container text-center"
+        >
+          <p>
+            Do not have an account? 
+            <Link
+              replace={false}
+              to="/signup"
+            >
+              Sign Up
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AUTHFORM COMPONENT should render SignUp fields 1`] = `
+<div>
+  <div
+    className="container authform-cont"
+  >
+    <h1
+      className="text-center"
+    >
+      Exchange Q & A by joining.
+    </h1>
+    <div
+      className="row"
+    >
+      <div
+        className="col-lg-12 col-md-12 col-sm-12"
+      >
+        <form
+          id="auth-form"
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="font-weight-bold"
+              htmlFor="email"
+            >
+              Email:
+            </label>
+            <input
+              className="form-control"
+              id="email"
+              onChange={[Function]}
+              type="text"
+            />
+            <small
+              className="form-text text-muted"
+              id="emailHelp"
+            >
+              abc@abc.com
+            </small>
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              className="font-weight-bold"
+              htmlFor="password"
+            >
+              Password:
+            </label>
+            <input
+              className="form-control"
+              id="password"
+              onChange={[Function]}
+              type="password"
+            />
+            <small
+              className="form-text text-muted"
+              id="emailHelp"
+            >
+              min.length 6
+            </small>
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              className="font-weight-bold"
+              htmlFor="username"
+            >
+              Username:
+            </label>
+            <input
+              className="form-control"
+              id="username"
+              onChange={[Function]}
+              type="text"
+            />
+          </div>
+          <div
+            className="form-group text-center"
+          >
+            <button
+              className="btn btn-primary form-control"
+              type="submit"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+        <div
+          className="container text-center"
+        >
+          <p>
+            Already have an account? 
+            <Link
+              replace={false}
+              to="/signin"
+            >
+              Log In
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
