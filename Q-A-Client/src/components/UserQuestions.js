@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchUserQuestions, removeError} from '../actions/actions';
 import { Link } from 'react-router-dom';
 
-class UserQuestions extends Component {
+export class UserQuestions extends Component {
     state = {
         text: ''
     }

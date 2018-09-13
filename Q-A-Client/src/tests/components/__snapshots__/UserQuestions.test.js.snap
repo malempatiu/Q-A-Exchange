@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`USERQUESTIONS COMPONENT should render component and set state text 1`] = `
+<div
+  className="conatiner homepage"
+>
+  <h1
+    className="text-center"
+  >
+    <span
+      className="font-weight-bold text-dark"
+    >
+      ugesh
+    </span>
+     your questions
+  </h1>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+      key="1235456852"
+    >
+      <div
+        className="col-lg-12 col-md-12 col-sm-12"
+      >
+        <div
+          className="card"
+        >
+          <Link
+            className="card-body text-primary"
+            id="1235456852"
+            replace={false}
+            to="/question/1235456852"
+          >
+            Node.js
+          </Link>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+      key="6658816594"
+    >
+      <div
+        className="col-lg-12 col-md-12 col-sm-12"
+      >
+        <div
+          className="card"
+        >
+          <Link
+            className="card-body text-primary"
+            id="6658816594"
+            replace={false}
+            to="/question/6658816594"
+          >
+            React
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
